@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Ensure Noto Sans font loads properly */
+.font-sans,
+body {
+  font-family: var(--font-noto-sans), "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Ensure Space Grotesk font loads properly for headers */
+.font-heading {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif !important;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  font-stretch: normal;
+  font-optical-sizing: auto;
+}
+
+/* Force Space Grotesk font for specific elements to make it more obvious */
+h1.font-heading,
+h2.font-heading,
+h3.font-heading {
+  font-family: var(--font-space-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Ensure Noto Sans is used for paragraphs and body text */
+p, span, div:not(.font-heading) {
+  font-family: var(--font-noto-sans), "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
